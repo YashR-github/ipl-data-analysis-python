@@ -1,8 +1,10 @@
 import matplotlib.pyplot as plt,os
 
 
+
 def plot_total_runs(result):
-    plt.figure(figsize=(12, 6))  
+    plt.figure(figsize=(12, 6)) 
+    result.sort_values(ascending=False)
     result.plot(kind="bar")
     plt.title("Total Runs by Team")
     plt.xlabel("Team")
@@ -37,7 +39,7 @@ def plot_matches_per_team_per_season(df):
     plt.ylabel("Matches")
     plt.xticks(rotation=45)
     plt.legend(bbox_to_anchor =(1.05,1.00), loc= "upper left")
-    # plt.tight_layout()
+    plt.tight_layout()
     os.makedirs("output",exist_ok=True)
     plt.savefig("output/matches_per_team_per_season.png", bbox_inches="tight")
     plt.close()
